@@ -1,0 +1,28 @@
+<h2 class="ui header">
+    srv1
+    <div class="sub header">Listes des hotes (virtualhosts) par serveur.</div>
+</h2>
+ 
+<div class="ui grid">
+    <div class="eight wide column">
+        <h3 class="ui header">
+            Apache2 sur srv1
+            {{ q["list-hosts"] | raw }}
+        </h3>
+    </div>
+<div class="ui grid">
+    <div class="eight wide column">
+        <h4 class="ui header">
+            IIS sur srv1
+            {{ q["list-hosts"] | raw }}
+        </h4>
+    </div>
+<div class="ui grid">
+    <div class="eight wide column">
+        <h5 class="ui header">
+            NGinx sur srv1
+            {{ q["list-hosts"] | raw }}
+        </h5>
+    </div>
+
+

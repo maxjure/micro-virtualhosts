@@ -10,20 +10,34 @@
             <div class="sub header">Serveurs d&eacute;di&eacute;s.</div>
             {{ q["list-hosts"] | raw }}
         </h3>
+<button class="ui button">
+      <a href="Display/host/ :idHost">
+      <i class="user icon"></i>
+  Virtualhosts
+  </button>
+</a>
+
     </div>
+    
     <div class="eight wide column">
             <h3 class="ui header">
             Mes Virtualhosts
             <div class="sub header">H&ocirctes virtuels sur serveurs mutualis&eacute;s.</div>
             {{ q["list-virtualhosts"] | raw }}
+            <div class="ui icon buttons">
+            		<button class="ui button">
+            		<a href="Display/host/ :idVirtualhost">
+            		<i class="eye icon"></i>
+            		<button class="ui button">
+            		<i class="configure icon"></i>
+            		Configurer
+            		<button class="ui button">
+            		<i class="refresh icon"></i>
+            		Recharger
+            		</button>
+            		</a>
         </h3>
-		 <h4>{{virtualhost}}</h4>
-		<ul class="list-virtualhosts">
-		{% for virtualhost in user.getName() %}
-
+		 
+            		
 	
-		    <li class="list-nameserver">{{virtualhosts}}</li>
-		{% endfor %}
-		</ul>
-    </div>
 </div>

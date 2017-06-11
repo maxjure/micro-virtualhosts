@@ -6,16 +6,11 @@ use Ajax\semantic\html\content\view\HtmlItem;
 use models\Virtualhost;
 use models\Server;
 
-/**
- * Controller My
- **/
+
 class My extends ControllerBase{
 	
 	
-	/**
-	 * Mes services
-	 * Hosts et virtualhosts de l'utilisateur connect?
-	 */
+
 	public function index(){
 		if(Auth::isAuth()){
 			$user = Auth::getUser();
@@ -29,8 +24,11 @@ class My extends ControllerBase{
 				return $item;
 				
 			});
-				
-				$idUser=DAO::getAll("models\Host","idUser=".$user->getId());
+				?>
+
+      <?php 
+      			
+      			$idUser=DAO::getAll("models\Host","idUser=".$user->getId());
 				$hostsItems->fromDatabaseObjects($idUser, function($id){
 					$item=new HtmlItem("");
 					$item->addItemHeaderContent($id->getId());
@@ -46,9 +44,9 @@ class My extends ControllerBase{
 						
 						$server = $namevhost->getServer("models\Virtualhost");
 						echo $namevhost->getServer(), "";
+					
+            		$item->addItemHeaderContent($namevhost->getName(),"");
 						
-						
-						$item->addItemHeaderContent($namevhost->getName(),"");
 						
 						
 						return $item;
@@ -71,3 +69,4 @@ class My extends ControllerBase{
 		
 	}
 }
+?>
