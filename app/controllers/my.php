@@ -18,33 +18,36 @@ class My extends ControllerBase{
 			
 			$hostsItems=$this->semantic->htmlItems("list-hosts");
 			$hostsItems->fromDatabaseObjects($hosts, function($host){
+				
 				$item=new HtmlItem("");
 				$item->addImage("public/img/host.png")->setSize("tiny");
 				$item->addItemHeaderContent($host->getName(),$host->getIpv4(),"");
 				return $item;
 				
 			});
-				?>
+				
 
-      <?php 
+       
       			
       			$idUser=DAO::getAll("models\Host","idUser=".$user->getId());
+      			
 				$hostsItems->fromDatabaseObjects($idUser, function($id){
 					$item=new HtmlItem("");
 					$item->addItemHeaderContent($id->getId());
-					
+				
 					$namevirtualhost=DAO::getAll("models\Virtualhost","idUser=".$id->getId());
 					
 					
 					
 					$hostsItems=$this->semantic->htmlItems("list-virtualhosts");
 					$hostsItems->fromDatabaseObjects($namevirtualhost, function($namevhost){
+					 
 						$item=new HtmlItem("");
 						$item->addImage("public/img/virtualhost.png")->setSize("tiny");
 						
 						$server = $namevhost->getServer("models\Virtualhost");
 						echo $namevhost->getServer(), "";
-					
+						
             		$item->addItemHeaderContent($namevhost->getName(),"");
 						
 						
@@ -54,19 +57,29 @@ class My extends ControllerBase{
 						
 					});});
 					
-					
-					
+			
 					
 					
 					
 					$this->jquery->compile($this->view);
-					$this->loadView("My/index.html");
+					$this->loadView("my/index.html");
 					
 					
 					
 					
 		}
+		else{
+			
+				$message=$this->semantic->htmlMessage("error","Merci de vous connecter pour tester.");
+				$message->setIcon("announcement")->setError();
+				$message->setDismissable();
+				$message->addContent(Auth::getInfoUser($this,"-login"));
+				echo $message;
+				echo $this->jquery->compile($this->view);
+			}
+			
+		}
 		
 	}
-}
+
 ?>

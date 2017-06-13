@@ -1,28 +1,40 @@
-<h2 class="ui header">
-    srv1
-    <div class="sub header">Listes des hotes (virtualhosts) par serveur.</div>
+<h1>
+<div class="ui right floated  icon buttons">
+            		<button class="ui button">
+            		<a href="My/index">
+            		<i class="refresh icon"></i>
+            		Retour &agrave; mes services
+</h1>
+<h2>
+<div class="ui horizontal list">
+<div class="item">
+    <img class="ui mini circular image" src="public/img/srv.png">
+    <div class="content">
+      <div class="ui sub header"><font><font>Srv1</font></font></div><font><font>
+      Listes des hotes (virtualhosts) par serveur.
+    </font></font></div>
+  </div>   
 </h2>
- 
+
+<h3>
 <div class="ui grid">
     <div class="eight wide column">
         <h3 class="ui header">
-            Apache2 sur srv1
-            {{ q["list-hosts"] | raw }}
+            {{ q["list-servers"] | raw }}
         </h3>
+        </div>
+   <br>     
+    
+<h4> 
+ <div class="field">
+      
+      <input placeholder="+ ajouter un virtualhost sur apache2 sur srv1" type="text">
     </div>
-<div class="ui grid">
-    <div class="eight wide column">
-        <h4 class="ui header">
-            IIS sur srv1
-            {{ q["list-hosts"] | raw }}
-        </h4>
-    </div>
-<div class="ui grid">
-    <div class="eight wide column">
-        <h5 class="ui header">
-            NGinx sur srv1
-            {{ q["list-hosts"] | raw }}
-        </h5>
-    </div>
-
-
+<div class="ui icon message">
+  <i class="warning circle icon"></i>
+  <div class="content">
+    <div class="header">
+      Aucun hotes virtuel sur le serveur IIS sur srv1
+  
+</div>
+</h4>

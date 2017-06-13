@@ -22,8 +22,21 @@
     <div class="eight wide column">
             <h3 class="ui header">
             Mes Virtualhosts
-            <div class="sub header">H&ocirctes virtuels sur serveurs mutualis&eacute;s.</div>
-            {{ q["list-virtualhosts"] | raw }}
+            <div class="sub header">H&ocirctes virtuels sur serveurs mutualis&eacute;s.</div>{{ q["list-virtualhosts"] | raw }}
+                        <div class="ui icon buttons">
+            		<button class="ui button">
+            		<a href="Display/host/ :idVirtualhost">
+            		<i class="eye icon"></i>
+            		<button class="ui button">
+            		<i class="configure icon"></i>
+            		Configurer
+            		<button class="ui button">
+            		<i class="refresh icon"></i>
+            		Recharger
+            		</button>
+            		</a>
+            
+                  
             <div class="ui icon buttons">
             		<button class="ui button">
             		<a href="Display/host/ :idVirtualhost">
